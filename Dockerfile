@@ -6,3 +6,6 @@ RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E03280
     && echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list \
     && apt-get update \
     && apt-get install -y --no-install-recommends mono-devel ca-certificates-mono zip jq nodejs yarn
+
+ENV PATH="${PATH}:/root/.dotnet/tools"
+RUN dotnet tool install -g Amazon.Lambda.Tools
